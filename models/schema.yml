@@ -37,3 +37,37 @@ sources:
                tests:
                  - unique
                  - not_null
+
+models:
+   - name: int_orders_margin
+     description: Margin per order
+     columns:
+       - name: orders_id
+         description: primary key of the table
+         tests:
+           - not_null
+           - unique
+   - name: int_sales_margin
+     description: margin per products
+     columns:
+       - name: "(orders_id || '-' || products_id)"
+         description: primary key of the table
+         tests:
+           - not_null
+           - unique
+   - name: int_orders_operational
+     description: operational margin per orders
+     columns:
+       - name: orders_id
+         description: primary key of the table
+         tests:
+           - not_null
+           - unique
+   - name: mrt_finance_day
+     description: all finance kpi per day
+     columns:
+       - name: date_date
+         description: primary key of the table
+         tests:
+           - not_null
+           - unique
