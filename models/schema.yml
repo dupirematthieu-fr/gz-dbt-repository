@@ -1,0 +1,33 @@
+version: 2
+sources:
+   - name: raw # allias de la table
+     schema: gz_raw_data #Nom exact du dataset dans BQ
+     description: greenwez raw data source
+     tables:
+         - name: sales # allias de la table
+           identifier: raw_gz_sales #Nom exact de la table dans BQ
+           description: sales of greewneez / we have one row per product_id found in each order_id
+           columns:
+             - name: "(orders_id || '-' || pdt_id)"
+               description: primary key of the table
+               tests:
+                 - unique
+                 - not_null
+         - name: product
+           identifier: raw_gz_product
+           description: purchase_price by products_id
+           columns:
+             - name: products_id
+               description: primary key of the table
+               tests:
+                 - unique
+                 - not_null
+         - name: ship
+           identifier: raw_gz_ship
+           description: ship and log costs by orders_id
+           columns:
+             - name: orders_id
+               description: primary key of the table
+               tests:
+                 - unique
+                 - not_null
