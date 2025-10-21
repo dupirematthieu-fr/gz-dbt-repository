@@ -7,6 +7,12 @@ sources:
          - name: sales # allias de la table
            identifier: raw_gz_sales #Nom exact de la table dans BQ
            description: sales of greewneez / we have one row per product_id found in each order_id
+           loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+           freshness: 
+             warn_after:
+               count: 90
+               period: day
+           
            columns:
              - name: "(orders_id || '-' || pdt_id)"
                description: primary key of the table
