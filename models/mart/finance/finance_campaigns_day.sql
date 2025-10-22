@@ -14,6 +14,6 @@ SELECT fd.date_date,
     fd.daily_log_cost,
     fd.daily_ship_cost
 FROM {{ref("mrt_finance_days")}} AS fd
-LEFT JOIN {{ref("int_campaigns_day")}} AS cd
+RIGHT JOIN {{ref("int_campaigns_day")}} AS cd
     USING (date_date)
 ORDER BY date_date DESC

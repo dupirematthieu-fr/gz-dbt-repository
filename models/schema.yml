@@ -235,3 +235,63 @@ models:
          description: daily number of clicks on the ads
          tests:
             - not_null
+   - name: finance_campaigns_day
+     description: daily finance kpi
+     columns:
+       - name: date_date
+         description: date, primary key
+         tests:
+            - not_null
+            - unique
+       - name: daily_ads_margin
+         description: daily operational margin-daily ads costs
+         tests:
+            - not_null
+       - name: daily_avg_basket
+         description: daily average basket
+         tests:
+            - not_null
+       - name: daily_operational_margin
+         description: daily operational margin
+         tests:
+            - not_null
+       - name: ads_cost_daily
+         description: daily ads costs
+         tests:
+            - not_null
+       - name: ads_impression_daily
+         description: daily ads impression
+         tests:
+            - not_null
+       - name: ads_click_daily
+         description: daily number of clicks on ads
+         tests:
+            - not_null
+       - name: daily_quantity
+         description: daily quantity of products sold
+         tests:
+            - not_null
+       - name: daily_revenue
+         description: daily revenue of sales
+         tests:
+            - not_null
+       - name: daily_purchase_cost
+         description: daily purchase costs of products
+         tests:
+            - not_null
+       - name: daily_margin
+         description: daily revenue - daily purchase costs
+         tests:
+            - not_null
+       - name: daily_shipping_fee
+         description: daily shipping fee of orders
+         tests:
+            - not_null
+       - name: daily_log_cost
+         description: daily log cost of products
+         tests:
+            - not_null
+       - name: daily_ship_cost
+         description: daily ship cost of products
+         tests:
+            - not_null
