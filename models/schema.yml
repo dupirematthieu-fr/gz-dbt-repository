@@ -259,11 +259,11 @@ models:
          description: daily ads costs
          tests:
             - not_null
-       - name: ads_impression_daily
+       - name: impression_daily
          description: daily ads impression
          tests:
             - not_null
-       - name: ads_click_daily
+       - name: click_daily
          description: daily number of clicks on ads
          tests:
             - not_null
