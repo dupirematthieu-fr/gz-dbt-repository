@@ -295,3 +295,34 @@ models:
          description: daily ship cost of products
          tests:
             - not_null
+   - name: finance_campaigns_month
+     description: monthly finance kpi
+     columns:
+       - name: datemonth
+         description: Month number, primary key
+       - name: monthly_ads_margin
+         description: monthly operational margin-monthly ads costs
+       - name: monthly_avg_basket
+         description: monthly average basket
+       - name: monthly_operational_margin
+         description: monthly operational margin
+       - name: monthly_ads_cost
+         description: monthly ads costs
+       - name: monthly_impression
+         description: monthly ads impression
+       - name: monthly_click
+         description: monthly number of clicks on ads
+       - name: monthly_quantity
+         description: monthly quantity of products sold
+       - name: monthly_revenue
+         description: monthly revenue of sales
+       - name: monthly_purchase_cost
+         description: monthly purchase costs of products
+       - name: monthly_margin
+         description: monthly revenue - monthly purchase costs
+       - name: monthly_shipping_fee
+         description: monthly shipping fee of orders
+       - name: monthly_log_cost
+         description: monthly log cost of products
+       - name: monthly_ship_cost
+         description: monthly ship cost of products
