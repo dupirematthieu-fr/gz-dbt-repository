@@ -137,11 +137,6 @@ sources:
                description: Identification key of the campaign
                tests:
                  - not_null
-             - name: "(date_date || '_' || campaign_key || '-' || campaign_name)"
-               description: primary key of the table
-               tests:
-                 - not_null
-                 - unique
              - name: ads_cost
                description: cost to publish ads
                tests:
