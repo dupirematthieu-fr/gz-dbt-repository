@@ -14,7 +14,7 @@ sources:
                period: day
            
            columns:
-             - name: "(orders_id || '-' || pdt_id)"
+             - name: "(date_date || '_' || orders_id || '-' || pdt_id)"
                description: primary key of the table
                tests:
                  - unique
@@ -36,6 +36,118 @@ sources:
                description: primary key of the table
                tests:
                  - unique
+                 - not_null
+         - name: adwords
+           identifier: raw_gz_adwords
+           description: data about the adwords ads campaign
+           columns:
+             - name: date_date
+               description: launch date of the campaign
+               tests:
+                 - not_null
+             - name: paid_source
+               description: Entreprise paid to publish ads
+               tests:
+                 - not_null
+             - name: campaign_key
+               description: Identification key of the campaign
+               tests:
+                 - not_null
+             - name: ads_cost
+               description: cost to publish ads
+               tests:
+                 - not_null
+             - name: impression
+               description: number of impressions
+               tests:
+                 - not_null
+             - name: click
+               description: number of clicks on the ad
+               tests:
+                 - not_null
+         - name: bing
+           identifier: raw_gz_bing
+           description: data about the bing ads campaign
+           columns:
+             - name: date_date
+               description: launch date of the campaign
+               tests:
+                 - not_null
+             - name: paid_source
+               description: Entreprise paid to publish ads
+               tests:
+                 - not_null
+             - name: campaign_key
+               description: Identification key of the campaign
+               tests:
+                 - not_null
+             - name: ads_cost
+               description: cost to publish ads
+               tests:
+                 - not_null
+             - name: impression
+               description: number of impressions
+               tests:
+                 - not_null
+             - name: click
+               description: number of clicks on the ad
+               tests:
+                 - not_null
+         - name: criteo
+           identifier: raw_gz_criteo
+           description: data about the criteo ads campaign
+           columns:
+             - name: date_date
+               description: launch date of the campaign
+               tests:
+                 - not_null
+             - name: paid_source
+               description: Entreprise paid to publish ads
+               tests:
+                 - not_null
+             - name: campaign_key
+               description: Identification key of the campaign
+               tests:
+                 - not_null
+             - name: ads_cost
+               description: cost to publish ads
+               tests:
+                 - not_null
+             - name: impression
+               description: number of impressions
+               tests:
+                 - not_null
+             - name: click
+               description: number of clicks on the ad
+               tests:
+                 - not_null
+         - name: facebook
+           identifier: raw_gz_facebook
+           description: data about the facebook ads campaign
+           columns:
+             - name: date_date
+               description: launch date of the campaign
+               tests:
+                 - not_null
+             - name: paid_source
+               description: Entreprise paid to publish ads
+               tests:
+                 - not_null
+             - name: campaign_key
+               description: Identification key of the campaign
+               tests:
+                 - not_null
+             - name: ads_cost
+               description: cost to publish ads
+               tests:
+                 - not_null
+             - name: impression
+               description: number of impressions
+               tests:
+                 - not_null
+             - name: click
+               description: number of clicks on the ad
+               tests:
                  - not_null
 
 models:
@@ -63,7 +175,7 @@ models:
          tests:
            - not_null
            - unique
-   - name: mrt_finance_day
+   - name: mrt_finance_days
      description: all finance kpi per day
      columns:
        - name: date_date
@@ -71,3 +183,146 @@ models:
          tests:
            - not_null
            - unique
+   - name: int_campaigns
+     description: data about the different ads campaign
+     columns:
+       - name: date_date
+         description: launch date of the campaign
+         tests:
+            - not_null
+       - name: paid_source
+         description: Entreprise paid to publish ads
+         tests:
+            - not_null
+       - name: campaign_key
+         description: Identification key of the campaign
+         tests:
+            - not_null
+       - name: "(date_date || '_' || campaign_key || '-' || campaign_name)"
+         description: primary key of the table
+         tests:
+            - not_null
+            - unique
+       - name: ads_cost
+         description: cost to publish ads
+         tests:
+            - not_null
+       - name: impression
+         description: number of impressions
+         tests:
+            - not_null
+       - name: click
+         description: number of clicks on the ad
+         tests:
+            - not_null
+   - name: int_campaigns_day
+     description: daily kpi for the ads campaigns
+     columns:
+       - name: date_date
+         description: launch date of the campaign, primary key
+         tests:
+            - not_null
+            - unique
+       - name: ads_cost_daily
+         description: daily costs to publish ads
+         tests:
+            - not_null
+       - name: impression_daily
+         description: daily number of impressions
+         tests:
+            - not_null
+       - name: click_daily
+         description: daily number of clicks on the ads
+         tests:
+            - not_null
+   - name: finance_campaigns_day
+     description: daily finance kpi
+     columns:
+       - name: date_date
+         description: date, primary key
+         tests:
+            - not_null
+            - unique
+       - name: daily_ads_margin
+         description: daily operational margin-daily ads costs
+         tests:
+            - not_null
+       - name: daily_avg_basket
+         description: daily average basket
+         tests:
+            - not_null
+       - name: daily_operational_margin
+         description: daily operational margin
+         tests:
+            - not_null
+       - name: ads_cost_daily
+         description: daily ads costs
+         tests:
+            - not_null
+       - name: impression_daily
+         description: daily ads impression
+         tests:
+            - not_null
+       - name: click_daily
+         description: daily number of clicks on ads
+         tests:
+            - not_null
+       - name: daily_quantity
+         description: daily quantity of products sold
+         tests:
+            - not_null
+       - name: daily_revenue
+         description: daily revenue of sales
+         tests:
+            - not_null
+       - name: daily_purchase_cost
+         description: daily purchase costs of products
+         tests:
+            - not_null
+       - name: daily_margin
+         description: daily revenue - daily purchase costs
+         tests:
+            - not_null
+       - name: daily_shipping_fee
+         description: daily shipping fee of orders
+         tests:
+            - not_null
+       - name: daily_log_cost
+         description: daily log cost of products
+         tests:
+            - not_null
+       - name: daily_ship_cost
+         description: daily ship cost of products
+         tests:
+            - not_null
+   - name: finance_campaigns_month
+     description: monthly finance kpi
+     columns:
+       - name: datemonth
+         description: Month number, primary key
+       - name: monthly_ads_margin
+         description: monthly operational margin-monthly ads costs
+       - name: monthly_avg_basket
+         description: monthly average basket
+       - name: monthly_operational_margin
+         description: monthly operational margin
+       - name: monthly_ads_cost
+         description: monthly ads costs
+       - name: monthly_impression
+         description: monthly ads impression
+       - name: monthly_click
+         description: monthly number of clicks on ads
+       - name: monthly_quantity
+         description: monthly quantity of products sold
+       - name: monthly_revenue
+         description: monthly revenue of sales
+       - name: monthly_purchase_cost
+         description: monthly purchase costs of products
+       - name: monthly_margin
+         description: monthly revenue - monthly purchase costs
+       - name: monthly_shipping_fee
+         description: monthly shipping fee of orders
+       - name: monthly_log_cost
+         description: monthly log cost of products
+       - name: monthly_ship_cost
+         description: monthly ship cost of products

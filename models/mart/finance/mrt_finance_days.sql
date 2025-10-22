@@ -6,6 +6,8 @@ SELECT date_date,
     ROUND(SUM(purchase_cost),2) AS daily_purchase_cost,
     ROUND(SUM(shipping_fee),2) AS daily_shipping_fee,
     ROUND(SUM(log_cost),2) AS daily_log_cost,
-    ROUND(SUM(quantity),2) AS daily_quantity
+    ROUND(SUM(quantity),2) AS daily_quantity,
+    ROUND(SUM(margin),2) AS daily_margin,
+    ROUND(SUM(ship_cost),2) AS daily_ship_cost
 FROM {{ref("int_orders_operational")}}
 GROUP BY date_date
