@@ -215,3 +215,23 @@ models:
          description: number of clicks on the ad
          tests:
             - not_null
+   - name: int_campaigns_day
+     description: daily kpi for the ads campaigns
+     columns:
+       - name: date_date
+         description: launch date of the campaign, primary key
+         tests:
+            - not_null
+            - unique
+       - name: ads_cost_daily
+         description: daily costs to publish ads
+         tests:
+            - not_null
+       - name: impression_daily
+         description: daily number of impressions
+         tests:
+            - not_null
+       - name: click_daily
+         description: daily number of clicks on the ads
+         tests:
+            - not_null
