@@ -101,7 +101,6 @@ Le graphe ci-dessous illustre la chaîne de transformation complète, des source
 
 <!-- Option 1: Image du lineage (recommandé si tu exportes le DAG en PNG) -->
 
-![Lineage](./docs/lineage.png)
 
 <!-- Option 2: Lineage en Mermaid (affiché directement dans GitHub) -->
 
